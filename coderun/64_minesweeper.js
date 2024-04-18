@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 let N, M, K;
 let coords = [];
 
-function aaa(board, x, y) {
+function setNumbers(board, x, y) {
     for (let i = -1; i <= 1; i++) {
         for (let j = -1; j <= 1; j++) {
             if (x + i >= 0 && x + i < N && y + j >= 0 && y + j < M) {
@@ -35,7 +35,7 @@ rl.on('line', (line) => {
             let board = new Array(N).fill(0).map(() => new Array(M).fill(0));
             for (let coord of coords) {
                 board[coord[0] - 1][coord[1] - 1] = '*';
-                aaa(board, coord[0] - 1, coord[1] - 1);
+                setNumbers(board, coord[0] - 1, coord[1] - 1);
             }
             console.log(board.map(row => row.join(' ')).join('\n'));
 
